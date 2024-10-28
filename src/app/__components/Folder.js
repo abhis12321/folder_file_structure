@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Folder({ explorerId, explorerData }) {
+export default function Folder({ explorerId, explorerData , handleNewItemIntoExplorerList}) {
     const [expanded, setExpanded] = useState(false);
     const [showInputForm, setShowInputForm] = useState({ visible: false, isFolder: null });
 
@@ -13,6 +13,12 @@ export default function Folder({ explorerId, explorerData }) {
             e.stopPropagation();
         }
         setShowInputForm({ visible: true, isFolder });
+    }
+
+    const addFileFolderToList = (e) => {
+        e.preventDefault();
+        handleNewItemIntoExplorerList({ name: e.target.name.value , parentId: explorerId , isFolder: showInputForm.isFolder });
+        setShowInputForm({ visible: false, isFolder: false });
     }
 
     // console.log(explorerData[explorerId])
@@ -29,13 +35,13 @@ export default function Folder({ explorerId, explorerData }) {
                 <div className={`pl-8 flex flex-col gap-1 ${!expanded && "hidden"}`}>
                     {
                         showInputForm.visible &&
-                        <form className="">
+                        <form className="" onSubmit={addFileFolderToList}>
                             { showInputForm.isFolder ? "📁  " : "📝  " }
-                            <input type="text" className="px-2 py-1 font-semibold ring-1 ring-black rounded-md outline-none" autoFocus onBlur={() => setShowInputForm({ ...showInputForm, visible: false })} />
+                            <input type="text" name="name" className="px-2 py-1 font-semibold ring-1 ring-black rounded-md outline-none" autoFocus onBlur={() => setShowInputForm({ ...showInputForm, visible: false })} />
                         </form>
                     }
                     {
-                        explorerData[explorerId]?.children?.map((childExplorerId) => <Folder key={childExplorerId} explorerId={childExplorerId} explorerData={explorerData} />)
+                        explorerData[explorerId]?.children?.map((childExplorerId) => <Folder key={childExplorerId} explorerId={childExplorerId} explorerData={explorerData} handleNewItemIntoExplorerList={handleNewItemIntoExplorerList}/>)
                     }
                 </div>
             </div>
