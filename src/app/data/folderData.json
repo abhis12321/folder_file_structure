@@ -1,0 +1,60 @@
+{
+  "folder": {
+    "1": {
+      "id": "1",
+      "isFolder": true,
+      "parentFolderId": null,
+      "name": "root",
+      "children": [2, 3]
+    },
+    "2": {
+      "id": "2",
+      "isFolder": true,
+      "parentFolderId": 1,
+      "name": "src",
+      "children": [4, 5]
+    },
+    "3": {
+      "id": "3",
+      "isFolder": true,
+      "parentFolderId": 1,
+      "name": "public",
+      "children": [6]
+    },
+    "4": {
+      "id": "4",
+      "isFolder": false,
+      "parentFolderId": 2,
+      "name": "App.js",
+      "children": []
+    },
+    "5": {
+      "id": "5",
+      "isFolder": true,
+      "parentFolderId": 4,
+      "name": "components",
+      "children": [7, 8]
+    },
+    "6": {
+      "id": "6",
+      "isFolder": false,
+      "parentFolderId": 3,
+      "name": "favicon.io",
+      "children": []
+    },
+    "7": {
+      "id": "6",
+      "isFolder": false,
+      "parentFolderId": 3,
+      "name": "Navbar.js",
+      "children": []
+    },
+    "8": {
+      "id": "6",
+      "isFolder": false,
+      "parentFolderId": 3,
+      "name": "Footer.js",
+      "children": []
+    }
+  }
+}
