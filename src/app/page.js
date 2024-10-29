@@ -17,7 +17,7 @@ export default function page() {
     // console.log({ name , isFolder, parentId })
   }
 
-  console.log(Object.keys(explorerData).length);
+  // console.log(Object.keys(explorerData).length);
   return (
     <div className='p-4'>
       <Folder explorerId={1} explorerData={explorerData} handleNewItemIntoExplorerList={handleNewItemIntoExplorerList}/>
